@@ -11,6 +11,5 @@
 ![img_1.png](img_1.png)
 ## Day 6
 
-PHP     Backend
-Angular Fronted 
+Flying to Saint-Petersburg.
 
