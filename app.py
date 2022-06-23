@@ -14,6 +14,10 @@ def index():
 def about():
     return render_template("about.html")
 
+@app.route('/checkout')
+def checkout():
+    return render_template("checkout.html")
+
 
 @app.route('/<string:user_name>/<int:user_id>/')
 def user_info(user_name,user_id):
