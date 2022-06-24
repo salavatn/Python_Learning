@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Create new Form
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Create new Data</h1>
+    <form method="post">
+        <input placeholder="Title of News" type="text" name="title" id="id" class="form-control"><br>
+        <textarea placeholder="Brief Summary" name="intro" id="intro" class="form-control"></textarea><br>
+        <textarea placeholder="News" name="text" id="text" class="form-control"></textarea><br>
+        <input type="Submit" class="btn btn-success" value="Send">
+    </form>
+</div>
+{% endblock %}
