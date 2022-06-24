@@ -20,13 +20,14 @@ class Article(db.Model):
 
 
 @app.route('/')
+@app.route('/home')
 def index():
     return render_template("index.html")
 
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
+@app.route('/checkout')
+def checkout():
+    return render_template("checkout.html")
 
 
 @app.route('/create-article',methods=['POST','GET'])
@@ -41,7 +42,7 @@ def create_article():
         try:
             db.session.add(article)
             db.session.commit()
-            return redirect('/')
+            return redirect('/posts')
         except:
             return "ERROR: The message is not uploaded!"
 
@@ -49,8 +50,19 @@ def create_article():
         return render_template("create-article.html")
 
 
-@app.route('/checkout')
-def checkout():
-    return render_template("checkout.html")
+@app.route('/posts')
+def posts():
+    articles = Article.query.order_by(Article.date.desc()).all()
+    return render_template("posts.html", articles=articles)
+
+
+@app.route('/post/<int:id>')
+def detailed_post(id):
+    article = Article.query.get(id)
+    return render_template("detailed_post.html", article=article)
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
 
 
